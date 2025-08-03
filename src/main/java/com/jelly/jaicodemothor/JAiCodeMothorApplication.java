@@ -1,10 +1,11 @@
 package com.jelly.jaicodemothor;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@EnableAspectJAutoProxy(exposeProxy = true)
+@MapperScan("com.jelly.jaicodemothor.mapper")
 public class JAiCodeMothorApplication {
 
     public static void main(String[] args) {
