@@ -1,6 +1,8 @@
 spring:
   application:
     name: j-ai-code-mothor-banckend
+  profiles:
+    active: local
   # mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
