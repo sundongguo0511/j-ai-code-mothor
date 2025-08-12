@@ -2,9 +2,11 @@ package com.jelly.jaicodemothor.service;
 
 import com.jelly.jaicodemothor.model.dto.app.AppQueryRequest;
 import com.jelly.jaicodemothor.model.entity.App;
+import com.jelly.jaicodemothor.model.entity.User;
 import com.jelly.jaicodemothor.model.vo.AppVO;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -14,6 +16,24 @@ import java.util.List;
  * @author jelly
  */
 public interface AppService extends IService<App> {
+
+    /**
+     * 通过对话生成应用
+     *
+     * @param appId     应用id
+     * @param message   提示词
+     * @param loginUser 登录用户
+     * @return 响应流
+     */
+    Flux<String> chatToGenCode(Long appId, String message, User loginUser);
+
+    /**
+     * 部署应用
+     * @param appId 应用id
+     * @param loginUser 登录用户
+     * @return 部署路径
+     */
+    String deployApp(Long appId, User loginUser);
 
     /**
      * 应用数据脱敏
